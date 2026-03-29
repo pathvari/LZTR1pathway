@@ -1,4 +1,4 @@
-#**LZTR1 Signaling Pathway Map**#
+<h1><strong>LZTR1 Signaling Pathway Map</strong></h1>
 
 ##**Interactive Visualization for the TuRex Project**
 This interactive pathway map provides a detailed visualization of the LZTR1 signaling network, focusing on its role in RASopathies and oncogenesis. This tool allows researchers to explore gene functions and interactions through direct integration with external biological databases.

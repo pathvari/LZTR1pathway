@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LZTR1 Pathway - Interaktionsübersicht</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: var(--primary-color);
+            color: white;
+            z-index: 10;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .num-cell {
+            font-weight: bold;
+            color: var(--accent-color);
+            width: 50px;
+        }
+
+        .symbol {
+            font-family: "Cambria Math", "Segoe UI Symbol", serif;
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #1d6fa5;
+            text-decoration: underline;
+        }
+
+        .pubmed-link {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container { padding: 15px; }
+            th, td { padding: 8px 10px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Molekulare Interaktionen</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nummer</th>
+                <th>Interaktion</th>
+                <th>PubMed ID</th>
+            </tr>
+        </thead>
+        <tbody id="interaction-table">
+            </tbody>
+    </table>
+</div>
+
+<script>
+    const data = [
+        ["1", "CHMP1B ⊣ VEGFR", "32175818"],
+        ["2", "LZTR1/CUL3 → CHMP1B", "32175818"],
+        ["3", "USP9X → LZTR1", "40885854"],
+        ["4", "LZTR1 ⊣ ATM", "41175093"],
+        ["5", "LZTR1 ⊣ NOC2L", "41175093"],
+        ["6", "NOC2L ⊣ TP53", "41175093"],
+        ["7", "SRC → JNK", "10766791"],
+        ["8", "JNK → STAT 3", "19766599"],
+        ["9", "JNK → TP53", "9724739"],
+        ["10", "ERK → STAT3", "19885032"],
+        ["11", "ERK → MSK", "16868029"],
+        ["12", "ERK → MYC", "11018017"],
+        ["13", "ERK → RSK", "16868029"],
+        ["14", "LZTR1 ⊣ RAS", "31337872"],
+        ["15", "LZTR1 ⊣ RIT1", "30872527"],
+        ["16", "LZTR1 ⊣ RAF", "30368668"],
+        ["17", "RIT1 → RAF", "37450595"],
+        ["18", "RAS → RAF", "9171352"],
+        ["19", "RAF → MEK", "8019005"],
+        ["20", "MEK → ERK", "1411546"],
+        ["21", "JAK → STAT", "28576744"],
+        ["22", "RAS → PI3K", "22683270"],
+        ["23", "PTEN ⊣ PI3K zu AKT", "21779440"],
+        ["24", "PI3K → AKT", "9005852"],
+        ["25", "AKT → MDM2", "11504915"],
+        ["26", "TSC 1/2 ⊣ mTOR", "12172553"],
+        ["27", "AKT ⊣ TSC1/2", "12172553"],
+        ["28", "AKT ⊣ GSK3", "28712664"],
+        ["29", "GSK3 → TSC", "16959574"],
+        ["30", "ERK ⊣ TSC", "15851026"],
+        ["31", "RSK ⊣ GSK3", "8250835"],
+        ["32", "GSK3 ⊣ LZTR1", "35114566"],
+        ["33", "LZTR1 — ABL", "30442766"],
+        ["34", "LZTR1 — FLT3", "30442766"],
+        ["35", "LZTR1 ⊣ EGFR", "36445254"],
+        ["36", "LZTR1 ⊣ AXL", "36445254"],
+        ["37", "EGFR → SRC", "9990038"]
+    ];
+
+    const tableBody = document.getElementById('interaction-table');
+
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        
+        // Nummer
+        const tdNum = document.createElement('td');
+        tdNum.className = 'num-cell';
+        tdNum.textContent = row[0];
+        
+        // Moleküle (cleaning symbols for styling)
+        const tdMol = document.createElement('td');
+        tdMol.innerHTML = row[1].replace('→', '<span class="symbol">→</span>')
+                                 .replace('⊣', '<span class="symbol">⊣</span>')
+                                 .replace('---', '<span class="symbol">—</span>');
+        
+        // PubMed
+        const tdPub = document.createElement('td');
+        const link = document.createElement('a');
+        link.href = `https://pubmed.ncbi.nlm.nih.gov/${row[2]}/`;
+        link.target = '_blank';
+        link.className = 'pubmed-link';
+        link.textContent = row[2];
+        tdPub.appendChild(link);
+        
+        tr.appendChild(tdNum);
+        tr.appendChild(tdMol);
+        tr.appendChild(tdPub);
+        tableBody.appendChild(tr);
+    });
+</script>
+
+</body>
+</html>

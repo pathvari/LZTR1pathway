@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Targeted Cancer Therapies Reference</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #c0392b;
+            --accent: #f39c12;
+            --bg: #fdfdfd;
+            --border: #e0e0e0;
+            --text: #34495e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text);
+            margin: 0;
+            padding: 40px 10px;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            font-size: 0.95rem;
+        }
+
+        /* Styling for the Groups */
+        .group-header {
+            background-color: #f8f9fa;
+            font-weight: 700;
+            color: var(--primary);
+            width: 20%;
+        }
+
+        .mechanism-cell {
+            font-weight: 600;
+            color: var(--secondary);
+            width: 30%;
+        }
+
+        .substance-cell {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        /* Highlights targets in parenthesis */
+        .target {
+            color: #2980b9;
+            font-weight: 500;
+        }
+
+        tr:hover {
+            background-color: #fff9f2;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <h1>Targeted Cancer Therapies Guide</h1>
+        <p class="intro">
+            The table below lists all targeted cancer therapies with regulatory approval as of July 2017, grouped by their respective mechanisms of action.
+        </p>
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Main Group</th>
+                <th>Mechanism of Action</th>
+                <th>Substances (Targets)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="group-header" rowspan="4">Anti-Hormone Therapies</td>
+                <td class="mechanism-cell">Estrogen Receptor Modulators</td>
+                <td class="substance-cell">Diethylstilbestrol, Fulvestrant, Tamoxifen, Toremifen</td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">Aromatase Inhibitors</td>
+                <td class="substance-cell">Anastrozole, Exemestane, Letrozole</td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">Androgen Receptor Inhibitors</td>
+                <td class="substance-cell">Bicalutamide, Enzalutamide, Flutamide</td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">GnRH Receptor Modulators</td>
+                <td class="substance-cell">Abarelix, Degarelix, Leuprorelin, Triptorelin</td>
+            </tr>
+
+            <tr>
+                <td class="group-header" rowspan="2">(Growth-) Receptor Inhibitors</td>
+                <td class="mechanism-cell">Intracellular Tyrosine Kinase Inhibitors</td>
+                <td class="substance-cell">
+                    Afatinib <span class="target">(EGFR)</span>, Brigatinib <span class="target">(ALK, EGFR)</span>, Erlotinib <span class="target">(EGFR, HER1R)</span>, 
+                    Gefitinib <span class="target">(EGFR)</span>, Lapatinib <span class="target">(EGFR, HER2)</span>, Lenvatinib <span class="target">(VEGFR1-3, FGFR1-4, PDGFRα, KIT, RET)</span>, 
+                    Neratinib <span class="target">(EGFR, HER2)</span>, Osimertinib <span class="target">(EGFR T790M)</span>, Sunitinib <span class="target">(PDGF, VEGF, KIT, FLT, RET)</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">Extracellular Receptor Inhibitors</td>
+                <td class="substance-cell">
+                    Bevacizumab <span class="target">(VEGF)</span>, Cetuximab <span class="target">(EGFR)</span>, Dinutuximab <span class="target">(GD2)</span>, 
+                    Necitumumab <span class="target">(EGFR)</span>, Olaratumab <span class="target">(PDGFRα)</span>, Panitumumab <span class="target">(EGFR)</span>, 
+                    Pertuzumab <span class="target">(HER2)</span>, Trastuzumab <span class="target">(HER2)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="group-header" rowspan="5">Protein Inhibitors</td>
+                <td class="mechanism-cell">ALK Inhibitors</td>
+                <td class="substance-cell">Alectinib, Ceritinib, Crizotinib <span class="target">(ALK, MET, ROS1)</span></td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">B-Raf Inhibitors</td>
+                <td class="substance-cell">Dabrafenib, Encorafenib, Vemurafenib</td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">BCR-ABL Inhibitors</td>
+                <td class="substance-cell">Dasatinib <span class="target">(BCR-ABL, SRC)</span>, Imatinib <span class="target">(BCR-ABL)</span>, Nilotinib <span class="target">(BCR-ABL)</span></td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">MEK Inhibitors</td>
+                <td class="substance-cell">Binimetinib, Cobimetinib, Trametinib</td>
+            </tr>
+            <tr>
+                <td class="mechanism-cell">mTOR Inhibitors</td>
+                <td class="substance-cell">Everolimus, Temsirolimus</td>
+            </tr>
+
+            <tr>
+                <td class="group-header">Immunotherapy</td>
+                <td class="mechanism-cell">Immune-Checkpoint Inhibitors</td>
+                <td class="substance-cell">
+                    Atezolizumab <span class="target">(PD-L1)</span>, Avelumab <span class="target">(PD-L1)</span>, Durvalumab <span class="target">(PD-L1)</span>, 
+                    Ipilimumab <span class="target">(CTLA-4)</span>, Nivolumab <span class="target">(PD-1)</span>, Pembrolizumab <span class="target">(PD-1)</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer-note">AG Ulaganathan, IMGAG-UKT </div>
+</div>
+<div style="position: fixed; bottom: 10px; right: 10px; z-index: 10000; background: rgba(255, 255, 255, 0.8); padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-family: sans-serif; font-size: 12px;">Off-label Use: <a href="https://clinicaltrials.gov/study/NCT02925234" style="color: #3498db; text-decoration: none; font-weight: bold;" target="_blank">The Drug Rediscovery Protocol (DRUP Trial)</a></div></body>
+</body>
+</html>
